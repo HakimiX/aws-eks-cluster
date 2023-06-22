@@ -17,15 +17,19 @@ export type Subdivision = {
 }
 
 export type Country = {
-    name: string;
-    continent: Continent;
-    currency: string;
-    phone: string;
-    states: States[];
-    languages: Language[];
-    subdivisions: Subdivision[];
+    name?: string;
+    continent?: Continent;
+    currency?: string;
+    phone?: string;
+    states?: States[];
+    languages?: Language[];
+    subdivisions?: Subdivision[];
 }
 
 export interface CountriesResponse {
     couuntries: Country[];
+}
+
+export interface CountryResponse {
+    country: Country;
 }
