@@ -1,0 +1,22 @@
+version: "3.7"
+
+services:
+  country-data-fetcher:
+    image: node:14-alpine
+    working_dir: /home/node/app
+    env_file:
+      - "./docker/base.env"
+    environment:
+      - PORT=4000
+      - COUNTRY_API_BASE_URL=https://countries.trevorblades.com
+      - LOG_LEVEL_DEFAULT=debug
+    ports: 
+      - "4010:4000"
+    command: /bin/sh -c "npm install --ignore-scripts && npm run build && npm run serve"
+    volumes:
+      - ~/.npmrc:/root/.npmrc:ro
+      - ./country-data-fetcher:/home/node/app
+      - country_data_fetcher_node_modules:/home/node/app/node_modules
+
+volumes:
+  country_data_fetcher_node_modules:
