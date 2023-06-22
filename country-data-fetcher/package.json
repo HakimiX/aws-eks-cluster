@@ -5,7 +5,7 @@
   "main": "build/app.js",
   "scripts": {
     "build": "tsc -b src/tsconfig.app.json",
-    "serve": "if [ \"$DEBUG_SERVICE_COUNTRY_DATA_FETCHER\" = \"true\" ] ; then DEBUG=\"--inspect=0.0.0.0\" ; fi; concurrently --kill-others \"tsc -b src/tsconfig.app.json -w \" \"nodemon ${DEBUG} build/app.js\"",
+    "serve": "ts-node-dev src/app.ts",
     "start": "tsc && node build/app.js"
   },
   "keywords": [],
@@ -22,8 +22,6 @@
     "@typescript-eslint/parser": "^5.23.0",
     "jest": "28.1.0",
     "jest-mock-proxy": "^3.0.0",
-    "concurrently": "^4.1.0",
-    "nodemon": "^1.18.11",
     "moxios": "^0.4.0"
   },
   "dependencies": {
